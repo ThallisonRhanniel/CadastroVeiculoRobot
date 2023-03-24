@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.10.10 on win32)" generated="20230315 07:55:05.421" rpa="false" schemaversion="3">
+<suite id="s1" name="Cadastro Veiculo" source="C:\ProjectsVip\RepasseVipRobot\suites\CadastroVeiculo\cadastro_veiculo.robot">
+<test id="s1-t1" name="TC01 - Navegando para Pagina de Incluir Veiculos" line="9">
+<kw name="Acessar site e fazer Login" library="setup_teardown" type="SETUP">
+<kw name="Acessar o site" library="setup_teardown">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${geral.Url}</arg>
+<arg>${geral.Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230315 07:55:05.708" level="INFO">Opening browser 'chrome' to base url 'https://localhost:44341/conta/entrar?ReturnUrl=%2F'.</msg>
+<status status="PASS" starttime="20230315 07:55:05.704" endtime="20230315 07:55:07.600"/>
+</kw>
+<status status="PASS" starttime="20230315 07:55:05.704" endtime="20230315 07:55:07.601"/>
+</kw>
+<kw name="Fazer login" library="login_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login.Input_Email}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 07:55:07.601" endtime="20230315 07:55:07.729"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Login.Input_Email}</arg>
+<arg>${dados_login.Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 07:55:07.730" level="INFO">Typing text 'lojista9@loja.com.br' into text field '//input[@id="Entrar_Login"]'.</msg>
+<status status="PASS" starttime="20230315 07:55:07.729" endtime="20230315 07:55:07.850"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login.Input_Senha}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 07:55:07.850" endtime="20230315 07:55:07.882"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Login.Input_Senha}</arg>
+<arg>${dados_login.Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230315 07:55:07.883" level="INFO">Typing text '123456' into text field '//input[@id="Entrar_Senha"]'.</msg>
+<status status="PASS" starttime="20230315 07:55:07.882" endtime="20230315 07:55:07.953"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 07:55:08.954" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230315 07:55:07.953" endtime="20230315 07:55:08.954"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Login.Button_Entrar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 07:55:08.955" level="INFO">Clicking element '//button[@class="btn btn-primary w-100"]'.</msg>
+<status status="PASS" starttime="20230315 07:55:08.954" endtime="20230315 07:55:10.125"/>
+</kw>
+<status status="PASS" starttime="20230315 07:55:07.601" endtime="20230315 07:55:10.125"/>
+</kw>
+<status status="PASS" starttime="20230315 07:55:05.703" endtime="20230315 07:55:10.125"/>
+</kw>
+<kw name="Navegando para a pagina de Incluir Veiculo" library="cadastro_veiculo">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Incluir_Veiculo.A_Incluir_Veiculo}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230315 07:55:10.126" endtime="20230315 07:55:10.164"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230315 07:55:11.165" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230315 07:55:10.164" endtime="20230315 07:55:11.165"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Incluir_Veiculo.A_Incluir_Veiculo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230315 07:55:11.166" level="INFO">Clicking element '//a[@href="/?handler=avancar"]'.</msg>
+<status status="PASS" starttime="20230315 07:55:11.165" endtime="20230315 07:55:12.374"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" starttime="20230315 07:55:12.375" endtime="20230315 07:55:12.847"/>
+</kw>
+<status status="FAIL" starttime="20230315 07:55:10.126" endtime="20230315 07:55:12.847"/>
+</kw>
+<kw name="Resetar a navegacão" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.848" endtime="20230315 07:55:12.848"/>
+</kw>
+<kw name="E Adiciono a placa do Veiculo" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.849" endtime="20230315 07:55:12.851"/>
+</kw>
+<kw name="Navego para a Proxima Pagina" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.853" endtime="20230315 07:55:12.853"/>
+</kw>
+<kw name="E Adiciono o Chassi do Veiculo" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.853" endtime="20230315 07:55:12.853"/>
+</kw>
+<kw name="E Adiciono o numero do Motor do Veiculo" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.853" endtime="20230315 07:55:12.853"/>
+</kw>
+<kw name="E Adiciono Quilometragem" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.854" endtime="20230315 07:55:12.854"/>
+</kw>
+<kw name="Navego para a Proxima Pagina" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.859" endtime="20230315 07:55:12.859"/>
+</kw>
+<kw name="Navego para a Proxima Pagina" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.860" endtime="20230315 07:55:12.860"/>
+</kw>
+<kw name="Navego para a Proxima Pagina" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.860" endtime="20230315 07:55:12.860"/>
+</kw>
+<kw name="E Adiciono O Preco do Veiculo" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.861" endtime="20230315 07:55:12.861"/>
+</kw>
+<kw name="Navego para a Proxima Pagina" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.861" endtime="20230315 07:55:12.861"/>
+</kw>
+<kw name="E Adiciono 4 ou mais imagens" library="cadastro_veiculo" sourcename="E Adiciono ${Quantidade} ou mais imagens">
+<status status="NOT RUN" starttime="20230315 07:55:12.862" endtime="20230315 07:55:12.862"/>
+</kw>
+<kw name="E adiciono Localizacão" library="cadastro_veiculo">
+<status status="NOT RUN" starttime="20230315 07:55:12.862" endtime="20230315 07:55:12.863"/>
+</kw>
+<kw name="Fechar navegador" library="setup_teardown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20230315 07:55:16.921" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED8828880&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+<msg timestamp="20230315 07:55:21.008" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED882BA00&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+<msg timestamp="20230315 07:55:25.088" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED882B700&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+<status status="PASS" starttime="20230315 07:55:12.864" endtime="20230315 07:55:33.264"/>
+</kw>
+<status status="PASS" starttime="20230315 07:55:12.863" endtime="20230315 07:55:33.264"/>
+</kw>
+<status status="FAIL" starttime="20230315 07:55:05.702" endtime="20230315 07:55:33.264">Execution terminated by signal</status>
+</test>
+<status status="FAIL" starttime="20230315 07:55:05.424" endtime="20230315 07:55:33.267"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Cadastro Veiculo">Cadastro Veiculo</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230315 07:55:16.921" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED8828880&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+<msg timestamp="20230315 07:55:21.008" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED882BA00&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+<msg timestamp="20230315 07:55:25.088" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000021ED882B700&gt;: Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente')': /session/ce95927a560396960231e65198f98c7e</msg>
+</errors>
+</robot>
