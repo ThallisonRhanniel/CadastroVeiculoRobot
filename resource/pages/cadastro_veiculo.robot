@@ -27,6 +27,12 @@ Resource  ../main.robot
 
 *** Keywords ***
 
+Resetar a navegacão nova
+    Clico e Navego para pagina de estoque
+    
+
+
+
 Resetar a navegacão
     ${Result}    Run Keyword And Return Status     Page Should Contain Element  ${Incluir_Veiculo.h4_Texto_Pagina_Inicial}
 
@@ -61,6 +67,14 @@ Navego para a Proxima Pagina
     Sleep                              1s
     Click Element                      ${Incluir_Veiculo.Button_Proxima_Pagina}
 
+Clico no button para finalizar o cadastro
+    Wait Until Element Is Visible      ${Incluir_Veiculo.Button_Proxima_Pagina}       10
+    Sleep                              1s 
+    Run Keyword And Ignore Error       Scroll Element Into View           ${Incluir_Veiculo.Button_Proxima_Pagina}
+    Sleep                              1s
+    Click Element                      ${Incluir_Veiculo.Button_Proxima_Pagina}
+    Sleep                              10s
+
 E Adiciono o Chassi do Veiculo
     Wait Until Element Is Visible      ${Incluir_Veiculo.Input_Chassi}             10
     Sleep                              1s
@@ -83,16 +97,27 @@ E Adiciono O Preco do Veiculo
 
 E Adiciono ${Quantidade} ou mais imagens
     FOR    ${counter}    IN RANGE    ${Quantidade}
-        Run Keyword And Ignore Error       Wait Until Element Is Visible      ${Incluir_Veiculo.Input_Imagem_Veiculo}         5
-        Choose File     ${Incluir_Veiculo.Input_Imagem_Veiculo}      C:/Users/Thallison/Downloads/photo_4924939089250200544_y.jpg        
+        IF    $counter == 0
+            Run Keyword And Ignore Error       Wait Until Element Is Visible      ${Incluir_Veiculo.Input_Imagem_Veiculo}         7
+            Choose File     ${Incluir_Veiculo.Input_Imagem_Veiculo}      C:/Users/Thallison/Downloads/nissan.png
+            Wait Until Element Is Visible      //img[@alt="foto Principal do veículo"]       50
+        ELSE
+            Run Keyword And Ignore Error       Wait Until Element Is Visible      ${Incluir_Veiculo.Input_Imagem_Veiculo}         7
+            Choose File     ${Incluir_Veiculo.Input_Imagem_Veiculo}      C:/Users/Thallison/Downloads/nissan.png
+            ${quantidade_imagens}    Evaluate    ${counter} + 1
+            Wait Until Element Is Visible      //img[@alt="foto ${quantidade_imagens} do veículo"]       50
+        END
+        
     END
 
 E adiciono Localizacão
-    Click Element               ${Incluir_Veiculo.select_Localizacao_Veiculo}
-    Press Keys                  ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
-    Press Keys                  ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
-    Press Keys                  ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
-    Press Keys                  ${Incluir_Veiculo.select_Localizacao_Veiculo}  ENTER 
+    Wait Until Element Is Visible       ${Incluir_Veiculo.select_Localizacao_Veiculo}       10
+    Click Element                       ${Incluir_Veiculo.select_Localizacao_Veiculo}
+    Press Keys                          ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
+    Press Keys                          ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
+    Press Keys                          ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
+    Press Keys                          ${Incluir_Veiculo.select_Localizacao_Veiculo}  ARROW_DOWN
+    Press Keys                          ${Incluir_Veiculo.select_Localizacao_Veiculo}  ENTER 
 
 
 
